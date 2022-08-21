@@ -6,7 +6,7 @@
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 10:44:12 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/18 19:12:48 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:08:13 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -19,20 +19,23 @@ int	main(int argc, char **argv)
 	int		fd;
 	char	*line;
 	int	i = 0;
-(void)argv;
-(void)argc;
-		fd = open("1_tripouille/files/41_with_nl", O_RDONLY);
-		line = get_next_line(fd);
-		while (line)
-		{
-			printf("|%s|", line);
-			free(line);
-			line = get_next_line(fd);
-			i++;
-		}
+	
+	(void)argv;
+	(void)argc;
+	fd = open("/Users/njerasea/project/doing/get_next_line/1_tripouille/files/43_with_nl", O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("|%s|", line);
 		free(line);
-		fd = close(fd);
-		return (0);
+		line = get_next_line(fd);
+		i++;
+	}
+	free(line);
+	printf("|%s|", line);
+	free(line);
+	fd = close(fd);
+	return (0);
 }
 
 /*int	main(void)

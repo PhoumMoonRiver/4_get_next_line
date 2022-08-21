@@ -6,7 +6,7 @@
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:44:17 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/21 14:08:11 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/08/19 14:54:34 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	i = 0;
 	new = NULL;
 	if (!s)
-	{
-		free(s);
 		return (NULL);
-	}
-	l = ft_strlen_end(s, '\0');
+	l = ft_strlen_end(s, 0);
 	if (l >= len)
 		new = (char *)malloc(len + 1);
 	else
@@ -50,10 +47,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	new = malloc(sizeof(char) * (ft_strlen_end(s1, '\0') + ft_strlen_end(s2, '\0') + 1));
 	if (!new)
-	{
-		free(s1);
 		return (NULL);
-	}
 	while (s1[i])
 	{
 		new[i] = s1[i];
