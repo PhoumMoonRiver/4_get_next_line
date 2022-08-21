@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/07 15:59:11 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/19 16:01:17 by njerasea         ###   ########.fr       */
+/*   Created: 2022/08/21 22:19:47 by njerasea          #+#    #+#             */
+/*   Updated: 2022/08/21 23:06:40 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_next(char *buffer, size_t lenline)
 {
@@ -31,7 +31,7 @@ char	*ft_next(char *buffer, size_t lenline)
 char	*ft_line(char *buffer, size_t lenline)
 {
 	char	*line;
-	
+
 	if (!buffer[0])
 		return (NULL);
 	if (buffer[lenline] == '\n')
@@ -42,14 +42,9 @@ char	*ft_line(char *buffer, size_t lenline)
 
 char	*ft_readtojoin(int fd, char *buffer)
 {
-	char		*res;
+	char	*res;
 	int		numread;
 
-	if (!buffer)
-	{
-		buffer = malloc(1);
-		buffer[0] = '\0';
-	}
 	res = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!res)
 		return (NULL);
@@ -73,15 +68,23 @@ char	*ft_readtojoin(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[4096];
+	static char	*buffer[OPEN_MAX];
 	char		*line;
 	size_t		lenline;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
 		return (NULL);
+	if (!buffer[fd])
+	{
+		buffer[fd] = malloc(1);
+		buffer[fd][0] = '\0';
+	}
 	buffer[fd] = ft_readtojoin(fd, buffer[fd]);
 	if (!buffer[fd])
+	{
+		free(buffer);
 		return (NULL);
+	}
 	lenline = ft_strlen_end(buffer[fd], '\n');
 	line = ft_line(buffer[fd], lenline);
 	buffer[fd] = ft_next(buffer[fd], lenline);

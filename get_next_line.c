@@ -6,7 +6,7 @@
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 15:59:11 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/21 14:08:06 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/08/21 23:04:27 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_next(char *buffer, size_t lenline)
 char	*ft_line(char *buffer, size_t lenline)
 {
 	char	*line;
-	
+
 	if (!buffer[0])
 		return (NULL);
 	if (buffer[lenline] == '\n')
@@ -42,7 +42,7 @@ char	*ft_line(char *buffer, size_t lenline)
 
 char	*ft_readtojoin(int fd, char *buffer)
 {
-	char		*res;
+	char	*res;
 	int		numread;
 
 	res = malloc(sizeof(char) * BUFFER_SIZE + 1);

@@ -6,7 +6,7 @@
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:44:17 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/21 14:08:11 by njerasea         ###   ########.fr       */
+/*   Updated: 2022/08/21 23:04:51 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	new = malloc(sizeof(char) * (ft_strlen_end(s1, '\0') + ft_strlen_end(s2, '\0') + 1));
+	new = malloc(sizeof(char) * (ft_strlen_end(s1, '\0') + \
+				ft_strlen_end(s2, '\0') + 1));
 	if (!new)
 	{
 		free(s1);

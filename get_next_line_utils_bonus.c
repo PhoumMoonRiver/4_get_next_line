@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njerasea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 15:44:17 by njerasea          #+#    #+#             */
-/*   Updated: 2022/08/19 14:54:34 by njerasea         ###   ########.fr       */
+/*   Created: 2022/08/21 22:20:26 by njerasea          #+#    #+#             */
+/*   Updated: 2022/08/21 23:06:45 by njerasea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
@@ -45,7 +45,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	new = malloc(sizeof(char) * (ft_strlen_end(s1, '\0') + ft_strlen_end(s2, '\0') + 1));
+	new = malloc(sizeof(char) * (ft_strlen_end(s1, '\0') + \
+				ft_strlen_end(s2, '\0') + 1));
 	if (!new)
 		return (NULL);
 	while (s1[i])
